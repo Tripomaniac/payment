@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #4e73df, #224abe);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        /*.logo{
+            border-radius: 50%;
+            width: 100px;
+            height: auto;
+            position: absolute;
+            left: 30px;
+            top: 30px;
+        }*/
+
+        .container{
+            padding: 40px;
+            background-color: rgb(9, 7, 7);
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+        }
+
+        .contents{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .image{
+            max-width: 50px;
+            max-width: 50px;
+        }
+
+        .container input{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #ffdc3f;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .styled-button {
+            background-color: #f2d336; 
+            border: none;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-bottom: 20px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            
+}
+
+.styled-button:hover {
+  background-color: #d8ba0e; /* Darker Green */
+}
+
+
+
+
+
+
+    </style>
+
+    <script>
+        function calculate() {
+  // Get the input value
+  var totalAmountInput = document.getElementById("totalAmount");
+  var totalAmount = parseFloat(totalAmountInput.value);
+
+  // Check if the input is valid
+  if (isNaN(totalAmount)) {
+    alert("Please enter a valid number for the total amount.");
+    return;
+  }
+
+  // Calculate 50% of the amount
+  var fiftyPercent = totalAmount * 0.5;
+
+  // Display the result
+  var resultElement = document.getElementById("result");
+  resultElement.textContent = "50% of the amount in rupees is: " + fiftyPercent.toFixed(2);
+}
+
+/*function emailsend(){
+    var custName = document.getElementById('name').value;
+    var custphone = document.getElementById('phoneNo').value;
+    var custEmail = document.getElementById('email').value;
+    var custMember = document.getElementById('member').value;
+    var CustAdv = document.getElementById('result').value;
+
+    var messageBody = "Name" + custName +
+    "<br/> PhoneNo" + custphone +
+    "<br/> Email" + custEmail + 
+    "<br/> Member" + custMember + 
+    "<br/> Advance" + CustAdv;
+
+
+    Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "tripomaniacofficial@gmail.com",
+    Password : "024AA695625B54204861FC92AF2126B60CAA",
+    To : 'tripomaniacofficial@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "Payment Alert",
+    Body : messageBody
+}).then(
+  message => alert("Form Submitted, We will be in touch")
+);
+}*/
+
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <form name="payform" action="https://formsubmit.co/tripomaniacofficial@gmail.com" method="post">
+            <h1 style="color: antiquewhite; font-family: 'Times New Roman', Times, serif; font-size: 50px; text-align: center;">Tripomaniac Pay</h1>
+            <input type="text" id="name" name="name" placeholder="Enter Name" required>
+            <input type="number" id="member" name="member" placeholder="No. of Member" required>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <input type="text" id="phoneNo" name="phn" placeholder="Phone No." required>
+            <input type="text" id="totalAmount" name="totalAmount" placeholder="Enter Total Ammount" required>
+            <p id="result" style="font-family: 'Times New Roman', Times, serif; color: antiquewhite;"></p>
+            <p style="font-family: 'Times New Roman', Times, serif; color: antiquewhite;">sayanm640@oksbi (Copy UPI)</p>
+            <input type="hidden" name="_subject" value="payment Alert!">
+            <button onclick="emailsend(); reset(); return false" class="styled-button">Completed</button>
+        </form>
+        <button onclick="calculate()" class="styled-button">Check payable Amount</button>
+        <div class="contents">
+            <a href="https://play.google.com/store/apps/details?id=com.phonepe.app"><img class="image" src="phonepe-logo-icon.png" alt="PhonePe"></a>
+            <a href="https://play.google.com/store/search?q=google+pay&c=apps"><img class="image" src="google-pay-icon.png" alt="GooglePay"></a>
+        </div>
+    </div>
+</body>
+</html>
